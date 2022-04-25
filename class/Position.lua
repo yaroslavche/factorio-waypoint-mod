@@ -4,6 +4,12 @@ local Position = {
     end,
     distanceTo = function (self, position)
         return math.sqrt((position.x - self.x) ^ 2 + (position.y - self.y) ^ 2);
+    end,
+    angle = function (self, position)
+        local deltaY = position.y - self.y
+        local deltaX = position.x - self.x
+        local angleInDegrees = math.atan2(deltaY, deltaX) * 180 / math.pi
+        return angleInDegrees * -1
     end
 }
 Position.__index = Position
